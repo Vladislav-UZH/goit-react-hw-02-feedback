@@ -1,19 +1,6 @@
 import PropTypes from 'prop-types';
 import { Component } from 'react';
-import {} from './FeedbackOptions.styled';
-// const FeedbackOptions = ({ options }) => {
-//   return (
-//     <ul>
-//       {options.map(option => {
-//         return (
-//           <li key={option}>
-//             <button>{option}</button>
-//           </li>
-//         );
-//       })}
-//     </ul>
-//   );
-// };
+import { List, Item, Btn } from './FeedbackOptions.styled';
 
 class FeedbackOptions extends Component {
   static propTypes = {
@@ -26,22 +13,22 @@ class FeedbackOptions extends Component {
   render() {
     const { options, updateStats } = this.props;
     return (
-      <ul>
+      <List>
         {options.map(option => {
           return (
-            <li key={option}>
-              <button
+            <Item total={options} key={option}>
+              <Btn
                 onClick={() => {
                   let satOption = option.toLowerCase();
                   return updateStats(satOption);
                 }}
               >
                 {option}
-              </button>
-            </li>
+              </Btn>
+            </Item>
           );
         })}
-      </ul>
+      </List>
     );
   }
 }
