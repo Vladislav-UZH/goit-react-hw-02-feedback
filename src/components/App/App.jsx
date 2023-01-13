@@ -34,27 +34,36 @@ export class App extends Component {
       <div
         style={{
           padding: 100,
+          color: '#DBD7D7',
+          backgroundColor: '#22232B',
         }}
       >
-        <Section title="Please leave feedback!">
-          <FeedbackOptions
-            updateStats={this.addNewStatistics}
-            options={['Good', 'Neutral', 'Bad']}
-          />
-        </Section>
-        <Section title="Statistics:">
-          {this.countTotalFeedback() ? (
-            <Statistics
-              good={this.state.good}
-              neutral={this.state.neutral}
-              bad={this.state.bad}
-              total={this.countTotalFeedback()}
-              positivePercentage={this.countPositiveFeedbackPercentage()}
+        <div
+          style={{
+            padding: 15,
+            backgroundColor: ' #32343b',
+          }}
+        >
+          <Section title="Please leave feedback!">
+            <FeedbackOptions
+              updateStats={this.addNewStatistics}
+              options={['Good', 'Neutral', 'Bad']}
             />
-          ) : (
-            <Notification message="There is no feedback" />
-          )}
-        </Section>
+          </Section>
+          <Section title="Statistics:">
+            {this.countTotalFeedback() ? (
+              <Statistics
+                good={this.state.good}
+                neutral={this.state.neutral}
+                bad={this.state.bad}
+                total={this.countTotalFeedback()}
+                positivePercentage={this.countPositiveFeedbackPercentage()}
+              />
+            ) : (
+              <Notification message="There is no feedback" />
+            )}
+          </Section>
+        </div>
       </div>
     );
   }
