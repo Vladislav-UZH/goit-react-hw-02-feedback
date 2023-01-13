@@ -24,7 +24,7 @@ class FeedbackOptions extends Component {
   };
 
   render() {
-    const { options, updateStats, countTotalFeedback } = this.props;
+    const { options, updateStats } = this.props;
     return (
       <ul>
         {options.map(option => {
@@ -32,7 +32,8 @@ class FeedbackOptions extends Component {
             <li key={option}>
               <button
                 onClick={() => {
-                  return updateStats(option, countTotalFeedback);
+                  let satOption = option.toLowerCase();
+                  return updateStats(satOption);
                 }}
               >
                 {option}

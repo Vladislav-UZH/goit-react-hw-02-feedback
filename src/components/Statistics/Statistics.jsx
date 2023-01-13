@@ -1,14 +1,6 @@
-const Statistics = ({
-  title,
-  good,
-  neutral,
-  bad,
-  total,
-  positivePercentage,
-}) => {
+const Statistics = ({ good, neutral, bad, total, positivePercentage }) => {
   return (
     <>
-      <h2>{title ?? 'Statistics:'}</h2>
       <ul>
         <li>
           <span>Good: {good}</span>
@@ -23,7 +15,7 @@ const Statistics = ({
           <span>Total: {total}</span>
         </li>
         <li>
-          <span>Positive feedback: {positivePercentage}</span>
+          <span>Positive feedback: {`${positivePercentage || '0'}%`}</span>
         </li>
       </ul>
     </>

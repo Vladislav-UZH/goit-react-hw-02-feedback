@@ -1,4 +1,4 @@
-import Widget from 'components/Widget';
+import Section from 'components/Section';
 import FeedbackOptions from 'components/FeedbackOptions';
 import Statistics from 'components/Statistics';
 import { Component } from 'react';
@@ -8,46 +8,44 @@ export class App extends Component {
     good: 0,
     neutral: 0,
     bad: 0,
-    total: 0,
   };
   countTotalFeedback = () => {
-    this.setState(prevState => {
-      const { good, neutral, bad } = prevState;
-      return { total: Number(good + neutral + bad) };
-    });
+    const { good, bad, neutral } = this.state;
+    // console.log(good + bad + neutral);
+    return good + bad + neutral;
   };
-  addNewStatistics = (option, totalFeedback) => {
-    console.log(option);
-    this.setState(prevState => {
-      switch (option.toLowerCase()) {
-        case 'good':
-          return { good: prevState.good + 1 };
-        case 'neutral':
-          return { neutral: prevState.neutral + 1 };
+  countPositiveFeedbackPercentage = () => {
+    const { good } = this.state;
+    const total = this.countTotalFeedback();
+    const percentage = 100;
+    const formula = (good / total) * percentage;
 
-        case 'bad':
-          return { bad: prevState.bad + 1 };
-        default:
-          return;
-      }
-    }, totalFeedback());
+    return Number(formula.toFixed(0));
+  };
+  addNewStatistics = option => {
+    this.setState(prevState => {
+      console.log(option);
+      return { [option]: prevState[option] + 1 };
+    });
   };
   render() {
     return (
       <>
-        <Widget title="Please leave feedback!">
+        <Section title="Please leave feedback!">
           <FeedbackOptions
-            countTotalFeedback={this.countTotalFeedback}
             updateStats={this.addNewStatistics}
             options={['Good', 'Neutral', 'Bad']}
           />
+        </Section>
+        <Section title="Statistics:">
           <Statistics
             good={this.state.good}
             neutral={this.state.neutral}
             bad={this.state.bad}
-            total={this.state.total}
+            total={this.countTotalFeedback()}
+            positivePercentage={this.countPositiveFeedbackPercentage()}
           />
-        </Widget>
+        </Section>
       </>
     );
   }

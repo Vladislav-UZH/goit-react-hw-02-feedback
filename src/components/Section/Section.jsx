@@ -1,13 +1,13 @@
-const Widget = ({ title, children }) => {
+const Section = ({ title, children }) => {
   //   console.log(title);
   return (
     <div>
-      <h1>{title ?? 'Please leave feedback!'}</h1>
+      <h2>{title ?? 'Please leave feedback!'}</h2>
       {children}
     </div>
   );
 };
-export default Widget;
+export default Section;
 // import { Component } from 'react';
 
 // class Widget extends Component {
