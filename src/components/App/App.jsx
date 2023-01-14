@@ -25,7 +25,6 @@ export class App extends Component {
   };
   addNewStatistics = option => {
     this.setState(prevState => {
-      console.log(option);
       return { [option]: prevState[option] + 1 };
     });
   };

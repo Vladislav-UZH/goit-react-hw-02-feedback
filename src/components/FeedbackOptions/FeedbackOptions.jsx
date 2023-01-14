@@ -5,6 +5,7 @@ import { List, Item, Btn } from './FeedbackOptions.styled';
 class FeedbackOptions extends Component {
   static propTypes = {
     options: PropTypes.array.isRequired,
+    updateStats: PropTypes.func.isRequired,
   };
   static defaultOptions = {
     options: undefined,

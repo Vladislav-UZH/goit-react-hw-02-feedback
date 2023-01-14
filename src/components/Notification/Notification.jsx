@@ -1,4 +1,5 @@
 import { Container, Message } from './Notification.styled';
+import PropTypes from 'prop-types';
 const Notification = ({ message }) => {
   return (
     <Container>
@@ -6,5 +7,7 @@ const Notification = ({ message }) => {
     </Container>
   );
 };
-
+Notification.propTypes = {
+  message: PropTypes.string,
+};
 export default Notification;
