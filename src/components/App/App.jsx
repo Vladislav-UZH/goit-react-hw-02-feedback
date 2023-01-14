@@ -40,8 +40,9 @@ export class App extends Component {
       >
         <div
           style={{
-            padding: 15,
+            padding: 20,
             backgroundColor: ' #32343b',
+            borderRadius: 10,
           }}
         >
           <Section title="Please leave feedback!">
@@ -60,7 +61,7 @@ export class App extends Component {
                 positivePercentage={this.countPositiveFeedbackPercentage()}
               />
             ) : (
-              <Notification message="There is no feedback" />
+              <Notification message="There is no feedback!" />
             )}
           </Section>
         </div>

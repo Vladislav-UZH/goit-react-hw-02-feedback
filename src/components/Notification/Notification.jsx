@@ -1,8 +1,9 @@
+import { Container, Message } from './Notification.styled';
 const Notification = ({ message }) => {
   return (
-    <div>
-      <p>{message ?? 'There is no feedback'}</p>
-    </div>
+    <Container>
+      <Message>{message ?? 'There is no feedback!'}</Message>
+    </Container>
   );
 };
 
